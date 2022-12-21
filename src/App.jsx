@@ -6,10 +6,13 @@ import KarnaphuliBillList from "./modules/gas/karnaphuli/BillList";
 import Welcome from "./modules/dashboard/Welcome";
 import Error from "./modules/shared/Error";
 import Layout from "./modules/shared/Layout";
+import { ThemeProvider } from '@mui/material/styles';
+import theme from "./theme";
+
 
 function App() {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <Router>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -20,7 +23,7 @@ function App() {
           </Route>
         </Routes>
       </Router>
-    </div>
+    </ThemeProvider>
   );
 }
 
