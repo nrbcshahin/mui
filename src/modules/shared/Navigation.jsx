@@ -1,68 +1,27 @@
-import {
-  ContentCopy,
-  ContentCut,
-  ContentPaste,
-  ExpandMore,
-} from "@mui/icons-material";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  ListItemIcon,
-  ListItemText,
-  MenuItem,
-  MenuList,
-} from "@mui/material";
-import { Link } from "react-router-dom";
+import { AppBar, Toolbar } from "@mui/material";
+import AdbIcon from "@mui/icons-material/Adb";
+import Typography from "@mui/material/Typography";
 
 const Navigation = () => {
   return (
-    <div>
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandMore />}>
-          ELECTRICIT BILL
-        </AccordionSummary>
-        <AccordionDetails
-          sx={{
-            padding: 0,
-          }}
-        >
-          <MenuList>
-            <Link to="/desco">
-              <MenuItem>
-                <ListItemIcon>
-                  <ContentCut fontSize="small" />
-                </ListItemIcon>
-                <ListItemText>Cut</ListItemText>
-              </MenuItem>
-            </Link>
-            <MenuItem>
-              <ListItemIcon>
-                <ContentCopy fontSize="small" />
-              </ListItemIcon>
-              <ListItemText>Copy</ListItemText>
-            </MenuItem>
-            <MenuItem>
-              <ListItemIcon>
-                <ContentPaste fontSize="small" />
-              </ListItemIcon>
-              <ListItemText>Paste</ListItemText>
-            </MenuItem>
-          </MenuList>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandMore />}>
-          GAS BILL
-        </AccordionSummary>
-        <AccordionDetails
-          sx={{
-            padding: 0,
-          }}
-        >
-          s
-        </AccordionDetails>
-      </Accordion>
+    <div className="left-nav">
+      <AppBar position="static" sx={{ bgcolor: "#233044" }}>
+        <Toolbar variant="dense">
+          <AdbIcon sx={{ mr: 1 }} />
+          <Typography
+            variant="h6"
+            sx={{
+              display: { xs: "none", md: "flex" },
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".1rem",
+              color: "inherit",
+            }}
+          >
+            COLLECTION
+          </Typography>
+        </Toolbar>
+      </AppBar>
     </div>
   );
 };

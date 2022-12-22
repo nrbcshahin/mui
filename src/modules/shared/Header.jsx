@@ -1,26 +1,30 @@
 import React from "react";
-import { AppBar, Toolbar } from "@mui/material";
-import AdbIcon from "@mui/icons-material/Adb";
-import Typography from "@mui/material/Typography";
+import { AppBar, Toolbar, Box, IconButton, Badge } from "@mui/material";
+import { Mail, Notifications, AccountCircle } from "@mui/icons-material";
 
 const Header = () => {
   return (
     <div>
-      <AppBar position="static">
+      <AppBar position="static" sx={{ bgcolor: "white" }}>
         <Toolbar variant="dense">
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            sx={{
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".1rem",
-              color: "inherit",
-            }}
-          >
-            COLLECTION
-          </Typography>
+          <Box sx={{ flexGrow: 1 }} />
+          <Box>
+            <IconButton size="large" edge="end">
+              <Badge badgeContent={4} color="error">
+                <Mail fontSize="small" />
+              </Badge>
+            </IconButton>
+            <IconButton size="large" edge="end" sx={{ marginLeft: 2 }}>
+              <Badge badgeContent={17} color="error">
+                <Notifications fontSize="small" />
+              </Badge>
+            </IconButton>
+          </Box>
+          <Box>
+            <IconButton size="large" edge="end" sx={{ marginLeft: 2 }}>
+              <AccountCircle fontSize="medium" />
+            </IconButton>
+          </Box>
         </Toolbar>
       </AppBar>
     </div>

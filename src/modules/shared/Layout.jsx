@@ -2,21 +2,19 @@ import { Outlet } from "react-router-dom";
 import { Grid } from "@mui/material";
 import Header from "./Header";
 import Navigation from "./Navigation";
-import Footer from "./Footer";
 
 const Layout = () => {
   return (
     <div>
-      <Header />
-      <Grid container spacing={2}>
+      <Grid container>
         <Grid item xs={2}>
           <Navigation />
         </Grid>
         <Grid item xs={10}>
+          <Header />
           <Outlet />
         </Grid>
       </Grid>
-      <Footer />
     </div>
   );
 };
