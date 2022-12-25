@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom";
-import { Grid } from "@mui/material";
+import { Grid, Box } from "@mui/material";
 import Header from "./Header";
 import Navigation from "./Navigation";
+import LinearProgress from "@mui/material/LinearProgress";
 
 const Layout = () => {
   return (
@@ -12,7 +13,12 @@ const Layout = () => {
         </Grid>
         <Grid item xs={10}>
           <Header />
+          <Box sx={{ width: "100%" }}>
+            <LinearProgress color="primary" />
+          </Box>
+          <div className="container">
           <Outlet />
+          </div>
         </Grid>
       </Grid>
     </div>

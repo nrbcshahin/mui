@@ -1,10 +1,14 @@
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
-  typography: {
-    h1: {
-      fontFamily: '"Montserrat", Open Sans',
-    },
+  components: {
+    MuiInputLabel: {
+      defaultProps: {
+        sx: {
+          color : "#777777"
+        },
+      },
+    }
   },
 });
 

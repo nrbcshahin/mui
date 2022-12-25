@@ -1,5 +1,5 @@
 const RebBillList = () => {
-    return <h1>Desco List</h1>;
+    return <h1>Reb List</h1>;
   };
   
   export default RebBillList;

@@ -15,7 +15,7 @@ const Header = () => {
               </Badge>
             </IconButton>
             <IconButton size="large" edge="end" sx={{ marginLeft: 2 }}>
-              <Badge badgeContent={17} color="error">
+              <Badge badgeContent={17} color="primary">
                 <Notifications fontSize="small" />
               </Badge>
             </IconButton>
