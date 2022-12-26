@@ -5,19 +5,19 @@ const Login = () => {
   return (
     <div>
       <Grid container>
-        <Grid item xs={9}>
+        <Grid item xs={9.5}>
           <div className="login-left">
             <img src={LoginBg} loading="lazy" alt="NRBC" />
           </div>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={2.5}>
           <div className="login-form">
             <Box
               component="form"
               noValidate
               autoComplete="off"
               sx={{
-                pt: 10,
+                pt: 15,
                 ml: 3,
                 mr: 3,
               }}
@@ -27,15 +27,16 @@ const Login = () => {
                 fullWidth="true"
                 label="Username"
                 autoComplete="off"
-                size="medium"
+                size="small"
                 variant="outlined"
                 sx={{
                   mb: 2,
+                  mt: 5,
                 }}
               />
               <TextField
                 fullWidth="true"
-                size="medium"
+                size="small"
                 label="Password"
                 type="password"
                 autoComplete="off"

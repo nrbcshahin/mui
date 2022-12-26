@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 const Navigation = () => {
   return (
     <div className="left-nav">
-      <AppBar position="static" sx={{ bgcolor: "#193053" }}>
+      <AppBar position="static" sx={{ bgcolor: "#18325c" }}>
         <Toolbar variant="dense">
           <AdbIcon sx={{ mr: 1 }} />
           <Typography
