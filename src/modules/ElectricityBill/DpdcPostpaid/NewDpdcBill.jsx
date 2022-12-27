@@ -12,7 +12,7 @@ const NewDpdcBill = () => {
 
   return (
     <div>
-      <Spinner/>
+      <Spinner />
       <Box className="title-box">
         <h1>
           DPDC Postpaid Bill Inqury

@@ -87,3 +87,22 @@ h6 {
   border: 1px solid #ddd;
   padding: 5px;
 }
+
+/*Accordion*/
+.accordion {
+  background-color: #1d365d !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.accordion svg {
+  color: #ffffff !important;
+}
+
+.accordion:before{
+  background-color: none;
+}
+
+.MuiAccordion-root{
+  margin: 0 !important;
+}

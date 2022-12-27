@@ -1,6 +1,7 @@
 import { AppBar, Toolbar } from "@mui/material";
 import AdbIcon from "@mui/icons-material/Adb";
 import Typography from "@mui/material/Typography";
+import SideNav from "./SideNav";
 
 const Navigation = () => {
   return (
@@ -22,6 +23,7 @@ const Navigation = () => {
           </Typography>
         </Toolbar>
       </AppBar>
+      <SideNav/>
     </div>
   );
 };
