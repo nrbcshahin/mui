@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { TextField, Box, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../../Shared/Spinner";
@@ -5,19 +6,26 @@ import DpdcBillInfo from "./DpdcBillInfo";
 
 const NewDpdcBill = () => {
   const navigate = useNavigate();
+  let [loading, setLoading] = useState(false);
 
-  const BtnBackToList = () => {
+  const btnBackToList = () => {
     navigate("/electricity-bill/dpdc-postpaid/bill-list");
+  };
+
+  const btnBillInquiry = () => {
+    setLoading(true);
+
+    setTimeout(()=>{setLoading(false)}, 5000);
   };
 
   return (
     <div>
-      <Spinner />
+      <Spinner loading={loading} />
       <Box className="title-box">
         <h1>
           DPDC Postpaid Bill Inqury
           <Button
-            onClick={BtnBackToList}
+            onClick={btnBackToList}
             sx={{ float: "right" }}
             size="small"
             variant="outlined"
@@ -46,6 +54,7 @@ const NewDpdcBill = () => {
                 ml: 1,
                 height: "36px",
               }}
+              onClick={btnBillInquiry}
             >
               Bill Inquiry
             </Button>

@@ -1,10 +1,14 @@
-import LinearProgress from "@mui/material/LinearProgress";
+import { Backdrop } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 
-const Spinner = () => {
+const Spinner = (prop) => {
   return (
-    <div className="spinner">
-      <LinearProgress color="primary" size="large" />
-    </div>
+    <Backdrop
+      sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.modal + 1 }}
+      open={prop.loading}
+    >
+      <CircularProgress color="inherit" size="5rem" />
+    </Backdrop>
   );
 };
 
