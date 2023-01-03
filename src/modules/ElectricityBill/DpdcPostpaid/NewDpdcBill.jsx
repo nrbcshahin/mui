@@ -3,6 +3,9 @@ import { TextField, Box, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../../Shared/Spinner";
 import DpdcBillInfo from "./DpdcBillInfo";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DatePicker } from "@mui/x-date-pickers";
 
 const NewDpdcBill = () => {
   const navigate = useNavigate();
@@ -15,8 +18,12 @@ const NewDpdcBill = () => {
   const btnBillInquiry = () => {
     setLoading(true);
 
-    setTimeout(()=>{setLoading(false)}, 5000);
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000);
   };
+
+  const [value, setValue] = useState();
 
   return (
     <div>
@@ -44,7 +51,18 @@ const NewDpdcBill = () => {
           autoComplete="off"
         >
           <div>
-            <TextField label="Bill Period" size="small" />
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DatePicker
+                label="Bill Period"
+                value={value}
+                views={["month", "year"]}
+                onChange={(newValue) => {
+                  setValue(newValue);
+                }}
+                renderInput={(params) => <TextField {...params} size="small" />}
+              />
+            </LocalizationProvider>
+
             <TextField label="Customer No" size="small" />
             <Button
               variant="contained"

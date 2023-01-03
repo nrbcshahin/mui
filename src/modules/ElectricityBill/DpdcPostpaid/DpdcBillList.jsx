@@ -1,46 +1,40 @@
-import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Box, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Spinner from "../../Shared/Spinner";
 
 const DpdcBillList = () => {
   const navigate = useNavigate();
+  const [billData, setBillData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const BtnNewBill = () => {
+  const btnNewBill = () => {
     navigate("/electricity-bill/dpdc-postpaid/new-bill");
   };
 
-  const rows = [
-    { id: 1, col1: "Hello", col2: "World", col3: "Shahin", col4: "Sumon" },
-    {
-      id: 2,
-      col1: "DataGridPro",
-      col2: "is Awesome",
-      col3: "Shahin",
-      col4: "Sumon",
-    },
-    { id: 3, col1: "MUI", col2: "is Amazing", col3: "Shahin", col4: "Sumon" },
-    { id: 4, col1: "MUI", col2: "is Amazing", col3: "Shahin", col4: "Sumon" },
-    { id: 5, col1: "MUI", col2: "is Amazing", col3: "Shahin", col4: "Sumon" },
-    { id: 6, col1: "MUI", col2: "is Amazing", col3: "Shahin", col4: "Sumon" },
-    { id: 7, col1: "MUI", col2: "is Amazing", col3: "Shahin", col4: "Sumon" },
-    { id: 8, col1: "MUI", col2: "is Amazing", col3: "Shahin", col4: "Sumon" },
-  ];
+  useEffect(() => {
+    fetch("https://reqres.in/api/users?page=2")
+      .then((x) => x.json())
+      .then((x) => setBillData(x.data))
+      .then(setLoading(false));
+  }, []);
 
   const columns = [
-    { field: "col1", headerName: "Name", width: 150 },
-    { field: "col2", headerName: "Country", width: 150 },
-    { field: "col3", headerName: "Country", width: 150 },
-    { field: "col4", headerName: "Country", width: 150 },
+    { field: "first_name", headerName: "Name", width: 150 },
+    { field: "last_name", headerName: "Country", width: 150 },
+    { field: "id", headerName: "Country", width: 150 },
+    { field: "avatar", headerName: "Country", width: 150 },
   ];
 
   return (
     <div>
+      <Spinner loading={loading} />
       <Box className="title-box">
         <h1>
           DPDC Postpaid Bill List
           <Button
-            onClick={BtnNewBill}
+            onClick={btnNewBill}
             sx={{ float: "right" }}
             size="small"
             variant="outlined"
@@ -50,7 +44,7 @@ const DpdcBillList = () => {
           </Button>
         </h1>
         <DataGrid
-          rows={rows}
+          rows={billData}
           columns={columns}
           autoHeight={true}
           headerHeight={40}
