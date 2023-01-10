@@ -14,6 +14,14 @@ const theme = createTheme({
         },
       },
     },
+    MuiFormHelperText: {
+      defaultProps: {
+        sx: {
+          ml: 0,
+          color: "#ed0537",
+        },
+      },
+    },
   },
 });
 
