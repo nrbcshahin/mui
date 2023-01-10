@@ -28,7 +28,7 @@ const DpdcBillList = () => {
   ];
 
   return (
-    <div>
+    <div className="container">
       <Spinner loading={loading} />
       <Box className="title-box">
         <h1>

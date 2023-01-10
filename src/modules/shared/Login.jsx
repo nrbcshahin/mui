@@ -1,6 +1,14 @@
-import { Grid, TextField, Box, Button, Checkbox } from "@mui/material";
-import LoginBg from "../../assets/images/login-bg.svg";
+import {
+  Grid,
+  TextField,
+  Box,
+  Button,
+  FormControlLabel,
+  Checkbox,
+} from "@mui/material";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import Spinner from "./Spinner";
 
 const Login = () => {
   const {
@@ -8,20 +16,28 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const [loading, setLoading] = useState(false);
 
   const onSubmit = (data) => {
-    console.log(data);
-  };
+    setLoading(true);
 
-  console.log(errors);
+    fetch("https://api.github.com/gists", {
+      method: "post",
+      body: data,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setLoading(false);
+      })
+      .catch((error) => {});
+  };
 
   return (
     <div>
+      <Spinner loading={loading} />
       <Grid container>
         <Grid item xs={9.3}>
-          <div className="login-left">
-            <img src={LoginBg} loading="lazy" alt="NRBC" />
-          </div>
+          <div className="login-left"></div>
         </Grid>
         <Grid item xs={2.7}>
           <div className="login-form">
@@ -29,7 +45,6 @@ const Login = () => {
               component="form"
               noValidate
               autoComplete="off"
-              onSubmit={handleSubmit(onSubmit)}
               sx={{
                 pt: 15,
                 ml: 3,
@@ -42,8 +57,8 @@ const Login = () => {
                 label="Username"
                 size="small"
                 variant="outlined"
-                name="userName"
                 {...register("userName", { required: true })}
+                error={!!errors.userName}
                 sx={{
                   mb: 3,
                   mt: 5,
@@ -55,22 +70,25 @@ const Login = () => {
                 label="Password"
                 type="password"
                 variant="outlined"
-                name="password"
                 {...register("password", { required: true })}
+                error={!!errors.password}
                 sx={{
                   mb: 2,
                 }}
               />
-              <Checkbox
+              <FormControlLabel
+                control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
-                size="medium"
-                color="primary"
-                sx={{
-                  mb: 5,
-                  ml: -1.5,
-                }}
               />
-              <Button type="submit" variant="contained" size="large" fullWidth>
+              <Button
+                variant="contained"
+                size="large"
+                fullWidth
+                sx={{
+                  mt: 7,
+                }}
+                onClick={handleSubmit(onSubmit)}
+              >
                 LOGIN
               </Button>
             </Box>

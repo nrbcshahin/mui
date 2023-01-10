@@ -13,7 +13,7 @@ const Layout = () => {
         </Grid>
         <Grid item xs={10}>
           <Header />
-          <div className="container">
+          <div>
             <Outlet />
           </div>
         </Grid>

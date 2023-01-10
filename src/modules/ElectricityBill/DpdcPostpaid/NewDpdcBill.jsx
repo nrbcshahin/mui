@@ -26,7 +26,7 @@ const NewDpdcBill = () => {
   const [value, setValue] = useState();
 
   return (
-    <div>
+    <div className="container">
       <Spinner loading={loading} />
       <Box className="title-box">
         <h1>

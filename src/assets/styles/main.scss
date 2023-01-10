@@ -40,11 +40,8 @@ h6 {
   margin: 0 auto;
 }
 
-.container {
-  margin: 10px;
-}
-
 .left-nav {
+  min-height: 100%;
   height: 100vh;
   background-color: #213658;
 }
@@ -52,8 +49,8 @@ h6 {
 .login-left {
   height: 100vh;
   opacity: 0.85;
-  background: #1d365d;
-  background-size: cover;
+  width: 100%;
+  background: #1d365d url("../images/login-bg.svg") no-repeat center;
 }
 
 .login-form {
@@ -105,4 +102,10 @@ h6 {
 
 .MuiAccordion-root {
   margin: 0 !important;
+}
+
+.container {
+  height: calc(100vh - 70px);
+  overflow-y: scroll;
+  padding: 10px;
 }
